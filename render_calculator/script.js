@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetTimerButton = document.getElementById('resetTimer');
     const countdownElement = document.getElementById('countdown');
 
-    let timerId;
     let countdownInterval;
 
     form.addEventListener('submit', function(e) {
@@ -38,16 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
         timeDisplay.textContent = timeString;
         resultContainer.classList.remove('hidden');
 
-        setTimerCheckbox.addEventListener('change', function() {
-            if (setTimerCheckbox.checked) {
-                startTimer(totalTimeSeconds);
-            } else {
-                stopTimer();
-            }
-        });
-
-        resetTimerButton.addEventListener('click', stopTimer);
+        if (setTimerCheckbox.checked) {
+            startTimer(totalTimeSeconds);
+        }
     });
+
+    setTimerCheckbox.addEventListener('change', function() {
+        if (setTimerCheckbox.checked && timeDisplay.textContent) {
+            const totalTimeSeconds = calculateTotalTimeInSeconds();
+            startTimer(totalTimeSeconds);
+        } else {
+            stopTimer();
+        }
+    });
+
+    resetTimerButton.addEventListener('click', stopTimer);
 
     function startTimer(duration) {
         let remainingTime = duration;
@@ -62,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (remainingTime <= 0) {
                 clearInterval(countdownInterval);
+                countdownInterval = null;
                 alert('Render complete!');
                 stopTimer();
             }
@@ -73,18 +78,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function stopTimer() {
         clearInterval(countdownInterval);
+        countdownInterval = null;
         countdownElement.classList.add('hidden');
         resetTimerButton.classList.add('hidden');
         setTimerCheckbox.checked = false;
         timerMessage.classList.add('hidden');
     }
 
+    function updateCountdownDisplay(time) {
+        countdownElement.textContent = formatTime(time);
     }
 
+    function formatTime(seconds) {
         const hours = Math.floor(seconds / 3600);
         const minutes = Math.floor((seconds % 3600) / 60);
         const secs = seconds % 60;
 
         return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function calculateTotalTimeInSeconds() {
+        const frames = parseInt(document.getElementById('frames').value, 10);
+        let timePerFrame = parseFloat(document.getElementById('timePerFrame').value);
+        const machines = parseInt(document.getElementById('machines').value, 10);
+
+        if (isNaN(frames) || isNaN(timePerFrame) || isNaN(machines) || frames <= 0 || timePerFrame <= 0 || machines <= 0) {
+            return 0;
+        }
+
+        timePerFrame *= 60;
+
+        return (frames * timePerFrame) / machines;
     }
 });
