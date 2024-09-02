@@ -75,19 +75,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function startTimer(duration) {
-
+        if (countdownInterval) {
+            return; 
+        }
+    
         remainingTime = duration;
         countdownElement.classList.remove('hidden');
         setTimerButton.textContent = "Reset Timer"; 
         setTimerButton.style.backgroundColor = "#F25C52"; 
-        
-
+        timerMessage.classList.remove('hidden');
+    
+    
         updateCountdownDisplay(remainingTime);
-
+        updateTimeDisplay(remainingTime);
+    
         countdownInterval = setInterval(() => {
             remainingTime--;
             updateCountdownDisplay(remainingTime);
-
+            updateTimeDisplay(remainingTime);
+    
             if (remainingTime <= 0) {
                 clearInterval(countdownInterval);
                 countdownInterval = null;
@@ -95,16 +101,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 stopTimer();
             }
         }, 1000);
-
-        
-        timerMessage.innerHTML = `${new Date(addtime(duration)).toLocaleTimeString('en-US', {
+    
+        timerMessage.innerHTML = `${new Date(addtime(remainingTime)).toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: 'numeric',
             second: 'numeric',
         })}`;
-        document.getElementById("hiddenJabar").classList.remove('hidden');
+        document.getElementById("hidden_new").classList.remove('hidden');
         pauseTimerButton.disabled = false; 
     }
+    
+    function updateTimeDisplay(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+    
+        let timeString = '';
+        if (hours > 0) timeString += `${hours}h `;
+        if (minutes > 0) timeString += `${minutes}m `;
+        timeString += `${secs}s`;
+    
+        timeDisplay.textContent = timeString;
+    }
+    
+    
 
     function stopTimer() {
         clearInterval(countdownInterval);

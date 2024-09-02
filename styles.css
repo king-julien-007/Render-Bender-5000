@@ -85,7 +85,7 @@ button.checkbox:active {
 
 
 button.Pause {
-    background-color: #007BFF;
+    background-color: #F25C52;
     color: white;
     cursor: pointer;
     width: 100%;
@@ -159,13 +159,6 @@ h1{
     color: rgb(255, 255, 255, .89);
     user-select: none;
     font-style: italic;
-}
-
-#hiddenJabar{
-    margin-top: .1%;
-    font-size: 22px;
-    color: rgb(255, 255, 255, .89);
-    user-select: none;
 }
 
 #hidden_new{
