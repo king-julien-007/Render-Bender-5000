@@ -142,3 +142,16 @@ label.new{
     font-size: 22px;
     color: rgba(18, 18, 18, 0.89);
 }
+
+#pauseTimer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    accent-color: rgb(241, 241, 241);
+   transform: scale(1.5);
+    margin: 4px 0 0;
+    line-height: normal;
+    user-select: none;
+    margin-top: 5px;
+    
+}
