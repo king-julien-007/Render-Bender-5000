@@ -1,3 +1,12 @@
+function addtime(duration) {
+    const timeNow = new Date().getTime();
+    const endTime = (timeNow/1000) + duration
+    
+    return endTime;
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('renderForm');
     const resultContainer = document.getElementById('resultContainer');
@@ -58,11 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+
+
     function startTimer(duration) {
         remainingTime = duration;
         countdownElement.classList.remove('hidden');
         setTimerButton.textContent = "Reset Timer"; 
         setTimerButton.style.backgroundColor = "#F25C52"; 
+        
 
         updateCountdownDisplay(remainingTime);
 
@@ -78,7 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 1000);
 
-        timerMessage.textContent = `Timer is set for ${formatTime(duration)}.`;
+        
+        timerMessage.textContent = `Timer is set for ${new Date(addtime(duration)).toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            timeZoneName: 'short'
+        })}`;
         timerMessage.classList.remove('hidden');
         pauseTimerButton
 .disabled = false; 
