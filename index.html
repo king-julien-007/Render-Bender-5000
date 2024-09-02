@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Yo RenderTime</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container stained-glass">
+        <h1>Render Time Calculator</h1>
+        <form id="renderForm">
+            <div class="input-group">
+                <label for="frames">Number of Frames:</label>
+                <input type="number" id="frames" name="frames" min="1" required>
+            </div>
+            <div class="input-group">
+                <label for="timePerFrame">Time per Frame (Minutes):</label>
+                <input type="number" id="timePerFrame" name="timePerFrame" min="0.0001" step="0.0001" required>
+            </div>
+            <div class="input-group">
+                <label for="machines">Number of Machines:</label>
+                <input type="number" id="machines" name="machines" min="1" value="1" required>
+            </div>
+            <button class="calc" type="submit">Calculate</button>
+        </form>
+        <div id="resultContainer" class="hidden">
+            <h2>Estimated Render Time:</h2>
+            <p id="timeDisplay"></p>
+            <div class="input-group">
+                <button class="new" id="setTimer">Start Timer</button>
+
+                <button class="new" id="pauseTimer">Pause Timer</button>
+
+                
+            </div>
+            <p id="timerMessage" class="hidden"></p>
+        </div>
+    </div>
+    <div id="countdown" class="hidden glassy"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- kslks -->
