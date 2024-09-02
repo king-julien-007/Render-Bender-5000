@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('ty.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width:fit-content;
+    backdrop-filter: blur(10px) brightness(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+button {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#countdown {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.115);
+    color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(px);
+    width: fit-content;
+    pointer-events: none;
+}
+
+.glassy {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+}
+
+#timeDisplay {
+font-size: 48px;
+color: rgb(256, 256,256, 0.89);
+}
+
+#frames{
+        font-size: 22px;
+        color: rgba(83, 83, 83, 0.89)
+}
+
+#timePerFrame{
+    font-size: 22px;
+    color: rgba(83, 83, 83, 0.89)
+
+}
+#machines{
+    font-size: 22px;
+    color: rgba(83, 83, 83, 0.89)
+    
+}
+
+h1{
+    color: rgba(255, 255, 255, 0.96);
+}
+
+
+#resetTimer{
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+}
+
+
+#setTimer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    accent-color: rgb(241, 241, 241);
+   transform: scale(1.5);
+    margin: 4px 0 0;
+    line-height: normal;
+    user-select: none;
+    margin-top: 5px;
+    
+}
+
+#timerMessage{
+    font-size: 22px;
+    color: rgb(255, 255, 255, .89);
+    user-select: none;
+}
+
+
+
+
+label.new{
+
+    font-size: 22px;
+    color: rgba(18, 18, 18, 0.89);
+}
