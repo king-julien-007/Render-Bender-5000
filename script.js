@@ -97,15 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
 
         
-        timerMessage.textContent = `Timer is set for ${new Date(addtime(duration)).toLocaleTimeString('en-US', {
+        timerMessage.innerHTML = `${new Date(addtime(duration)).toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: 'numeric',
             second: 'numeric',
-            timeZoneName: 'short'
         })}`;
-        timerMessage.classList.remove('hidden');
-        pauseTimerButton
-.disabled = false; 
+        document.getElementById("hiddenJabar").classList.remove('hidden');
+        pauseTimerButton.disabled = false; 
     }
 
     function stopTimer() {
