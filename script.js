@@ -1,8 +1,13 @@
 function addtime(duration) {
+    console.log(duration,"duration")
+
     const timeNow = new Date().getTime();
+    console.log(timeNow/1000,"timeNow")
+
     const endTime = (timeNow/1000) + duration
-    
-    return endTime;
+    console.log(endTime,"endTime")
+
+    return endTime * 1000;
 }
 
 
@@ -70,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function startTimer(duration) {
+
         remainingTime = duration;
         countdownElement.classList.remove('hidden');
         setTimerButton.textContent = "Reset Timer"; 
