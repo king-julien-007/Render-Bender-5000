@@ -118,6 +118,7 @@ button:hover {
     backdrop-filter: blur(px);
     width: fit-content;
     pointer-events: none;
+    visibility: hidden;
 }
 
 .glassy {
