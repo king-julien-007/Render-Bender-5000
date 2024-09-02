@@ -8,4 +8,3 @@ set the Timer...
 Go to sleep.../
 
 
-[Demo](https://king-julien-007.github.io/Render-Bender-5000/render_calculator/)
