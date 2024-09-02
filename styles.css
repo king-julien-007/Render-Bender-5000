@@ -158,8 +158,15 @@ h1{
     font-size: 22px;
     color: rgb(255, 255, 255, .89);
     user-select: none;
+    font-style: italic;
 }
 
+#hiddenJabar{
+    margin-top: .1%;
+    font-size: 22px;
+    color: rgb(255, 255, 255, .89);
+    user-select: none;
+}
 
 
 
